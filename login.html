@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Wanderlust</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">Wander<span>lust</span></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/destinations.html">Destinations</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+          <li><a href="pages/dashboard.html">Dashboard</a></li>
+          <li><button id="login-btn" class="btn login-btn">Login</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Login Page Content -->
+  <section class="container">
+    <div class="card">
+      <h2 class="form-title">Login to Wanderlust</h2>
+      <form id="login-page-form">
+        <div class="form-group">
+          <label for="login-page-email">Email</label>
+          <input type="email" id="login-page-email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-page-password">Password</label>
+          <input type="password" id="login-page-password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn btn-block">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-column">
+        <h3>Wanderlust</h3>
+        <p>Your personal travel companion for discovering amazing destinations.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/destinations.html">Destinations</a></li>
+          <li><a href="pages/about.html">About Us</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Popular Destinations</h3>
+        <ul>
+          <li><a href="pages/destinations.html">Paris, France</a></li>
+          <li><a href="pages/destinations.html">Tokyo, Japan</a></li>
+          <li><a href="pages/destinations.html">Rome, Italy</a></li>
+          <li><a href="pages/destinations.html">Bali, Indonesia</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Email: info@wanderlust.com</li>
+          <li>Phone: +91 9235748239</li>
+          <li>Address: 123 Travel Lane, Explore City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; 2025 Wanderlust Travel Planner. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

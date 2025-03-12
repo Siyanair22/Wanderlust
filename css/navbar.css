@@ -1,0 +1,41 @@
+/* navbar.css */
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  .logo span {
+    color: var(--secondary);
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  nav ul li {
+    margin-left: 2rem;
+  }
+  nav ul li a,
+  nav ul li button {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+  }
+  nav ul li a:hover,
+  nav ul li button:hover {
+    color: var(--secondary);
+  }
+  

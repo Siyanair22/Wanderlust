@@ -1,0 +1,31 @@
+/* features.css */
+.features {
+    padding: 4rem 0;
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary);
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .feature-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 2rem;
+    text-align: center;
+  }
+  .feature-icon {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+  }
+  .feature-title {
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  

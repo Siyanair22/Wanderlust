@@ -1,0 +1,50 @@
+/* results.css */
+.results {
+    display: none;
+    margin: 2rem 0;
+  }
+  .itinerary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+  }
+  .tab {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  .tab.active {
+    border-bottom: 2px solid var(--secondary);
+    color: var(--secondary);
+    font-weight: bold;
+  }
+  .tab-content {
+    padding: 1.5rem 0;
+  }
+  .place-card {
+    display: flex;
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .place-img {
+    width: 30%;
+    background: url('/api/placeholder/300/200') no-repeat center center/cover;
+  }
+  .place-info {
+    width: 70%;
+    padding: 1.5rem;
+  }
+  .place-title {
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  
