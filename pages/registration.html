@@ -25,11 +25,15 @@
     </div> 
   </header>
 
-  <!-- Login Page Content -->
+  <!-- Register Page Content -->
   <section class="container">
     <div class="card">
-      <h2 class="form-title">Login to Wanderlust</h2>
+      <h2 class="form-title">Register to Wanderlust</h2>
       <form id="login-page-form" action="login.php" method="POST">
+        <div class="form-group">
+            <label for="login-page-Name">Name</label>
+            <input type="text" name="name" id="login-page-Name" placeholder="Enter your Name" required>
+          </div>
         <div class="form-group">
           <label for="login-page-email">Email</label>
           <input type="email" name="email" id="login-page-email" placeholder="Enter your email" required>
@@ -38,9 +42,8 @@
           <label for="login-page-password">Password</label>
           <input type="password" name="password" id="login-page-password" placeholder="Enter your password" required>
         </div>
-        <button type="submit" class="btn btn-block">Login</button>
+        <button type="button" class="btn btn-block" onclick="window.location.href='login.html';">Register</button>
       </form>
-      <p class="text-center">New user? <a href="pages/registration.html">Register here</a></p>
     </div>
   </section>
 
