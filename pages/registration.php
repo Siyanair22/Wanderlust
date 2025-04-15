@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $server = 'localhost';
     $user = 'root';
     $pass = '';     
-    $db = 'ss';  
+    $db = 'Details';  
     $conn = mysqli_connect($server, $user, $pass, $db);
 
     if (!$conn) {
@@ -40,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert into database
-    $query = "INSERT INTO Registration (name, email, username, password) 
-              VALUES ('$name', '$email', '$username', '$hashed_password')";
+    $query = "INSERT INTO Data (Name, Email, Password) 
+              VALUES ('$name', '$email', '$hashed_password')";
 
     if (mysqli_query($conn, $query)) {
         $_SESSION['user'] = $email;
@@ -49,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<h2>Registration Successful</h2>";
         echo "Name: $name<br>";
         echo "Email: $email<br>";
-        echo "Username: $username<br>";
     } else {
         echo "Error: " . mysqli_error($conn);
     }
