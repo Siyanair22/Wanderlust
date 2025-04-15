@@ -6,10 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $password = $_POST['password'];
-    
 
     // Validate input fields
-    if (empty($name) || empty($email)  || empty($password)) {
+    if (empty($name) || empty($email) || empty($password)) {
         echo "All fields are required.";
         exit;
     }
@@ -18,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid email format.";
         exit;
     }
-
 
     if (strlen($password) < 6) {
         echo "Password must be at least 6 characters long.";
@@ -29,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $server = 'localhost';
     $user = 'root';
     $pass = '';     
-    $db = 'ss';  
+    $db = 'details';  
     $conn = mysqli_connect($server, $user, $pass, $db);
 
     if (!$conn) {
@@ -40,22 +38,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert into database
-    $query = "INSERT INTO Registration (name, email, username, password) 
-              VALUES ('$name', '$email', '$username', '$hashed_password')";
+    $query = "INSERT INTO Data (Name, emailid, Password) 
+              VALUES ('$name', '$email', '$hashed_password')";
 
     if (mysqli_query($conn, $query)) {
         $_SESSION['user'] = $email;
-        setcookie("user", $email, time() + (86400 * 30), "/"); // Cookie for 30 days
-        echo "<h2>Registration Successful</h2>";
-        echo "Name: $name<br>";
-        echo "Email: $email<br>";
-        echo "Username: $username<br>";
+        setcookie("user", $email, time() + (86400 * 30), "/");
+
+        // ✅ Redirect to login.html in parent folder
+        header("Location: ../login.html");
+        exit;
     } else {
         echo "Error: " . mysqli_error($conn);
     }
 
-    // Close connection
     mysqli_close($conn);
 } else {
     echo "Invalid request method.";
 }
+?>
