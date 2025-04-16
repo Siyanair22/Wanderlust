@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Wanderlust</title>
+  <title>Register - Wanderlust</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/forms.css">
@@ -29,10 +29,11 @@
   <section class="container">
     <div class="card">
       <h2 class="form-title">Register to Wanderlust</h2>
+      <form action="registration.php" method="POST">
         <div class="form-group">
             <label for="login-page-Name">Name</label>
             <input type="text" name="name" id="login-page-Name" placeholder="Enter your Name" required>
-          </div>
+        </div>
         <div class="form-group">
           <label for="login-page-email">Email</label>
           <input type="email" name="email" id="login-page-email" placeholder="Enter your email" required>
@@ -41,7 +42,7 @@
           <label for="login-page-password">Password</label>
           <input type="password" name="password" id="login-page-password" placeholder="Enter your password" required>
         </div>
-        <button type="button" class="btn btn-block" onclick="window.location.href='login.html';">Register</button>
+        <button type="submit" class="btn btn-block">Register</button>
       </form>
     </div>
   </section>
@@ -49,6 +50,5 @@
   <!-- Footer -->
   <footer id="footer-container"></footer>
   <script src="../js/footer.js"></script>
-  <script src="js/auth.js"></script>
 </body>
 </html>

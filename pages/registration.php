@@ -6,10 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $password = $_POST['password'];
-    
 
     // Validate input fields
-    if (empty($name) || empty($email)  || empty($password)) {
+    if (empty($name) || empty($email) || empty($password)) {
         echo "All fields are required.";
         exit;
     }
@@ -19,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-
     if (strlen($password) < 6) {
         echo "Password must be at least 6 characters long.";
         exit;
@@ -28,22 +26,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database connection
     $server = 'localhost';
     $user = 'root';
-    $pass = '';     
-    $db = 'Details';  
+    $pass = 's123';     
+    $db = 'details';  
     $conn = mysqli_connect($server, $user, $pass, $db);
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
-    } else {
-        echo "Database connection successful.<br>";
     }
 
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // // Hash the password
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert into database
-    $query = "INSERT INTO Data (Name, Email, Password) 
-              VALUES ('$name', '$email', '$hashed_password')";
+    $query = "INSERT INTO Data (name, emailid, password) 
+              VALUES ('$name', '$email', '$password')";
 
     if (mysqli_query($conn, $query)) {
         $_SESSION['user'] = $email;
@@ -51,6 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<h2>Registration Successful</h2>";
         echo "Name: $name<br>";
         echo "Email: $email<br>";
+        
+        // Redirect to login page after successful registration
+        header("Location: ../login.html");
+        exit;
     } else {
         echo "Error: " . mysqli_error($conn);
     }
