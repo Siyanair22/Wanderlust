@@ -6,9 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['name']);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $password = $_POST['password'];
+    
 
     // Validate input fields
-    if (empty($name) || empty($email) || empty($password)) {
+    if (empty($name) || empty($email)  || empty($password)) {
         echo "All fields are required.";
         exit;
     }
@@ -17,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid email format.";
         exit;
     }
+
 
     if (strlen($password) < 6) {
         echo "Password must be at least 6 characters long.";
@@ -32,13 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
+    } else {
+        echo "Database connection successful.<br>";
     }
 
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert into database
-    $query = "INSERT INTO Data (Name, emailid, Password) 
+    $query = "INSERT INTO Data (Name, Email, Password) 
               VALUES ('$name', '$email', '$hashed_password')";
 
     if (mysqli_query($conn, $query)) {
