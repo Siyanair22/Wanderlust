@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $server = 'localhost';
     $user = 'root';
     $pass = '';     
-    $db = 'details';  
+    $db = 'Details';  
     $conn = mysqli_connect($server, $user, $pass, $db);
 
     if (!$conn) {
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user'] = $email;
         setcookie("user", $email, time() + (86400 * 30), "/");
 
-        // ✅ Redirect to login.html in parent folder
+        // Redirect to login page
         header("Location: ../login.html");
         exit;
     } else {
