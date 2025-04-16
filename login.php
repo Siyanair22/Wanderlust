@@ -6,21 +6,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if (!$email) {
-        echo "Invalid email format.";
+        echo "<script>alert('Invalid email format.'); window.location.href='login.html';</script>";
         exit;
     }
 
-    // Dummy user credentials for demonstration
-    $valid_email = "user@example.com";
-    $valid_password = "password123"; // In real use, hash passwords!
+    // Database connection
+    $server = 'localhost';
+    $user = 'root';
+    $pass = 's123';     
+    $db = 'details';  
+    $conn = mysqli_connect($server, $user, $pass, $db);
 
-    if ($email === $valid_email && $password === $valid_password) {
-        $_SESSION['user'] = $email;
-        setcookie("user", $email, time() + (86400 * 30), "/"); // 30 days
-        echo "Login successful!";
-    } else {
-        echo "Invalid email or password.";
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
+
+    // Query to check if the email exists in the database
+    $query = "SELECT * FROM Data WHERE emailid = '$email'";
+    $result = mysqli_query($conn, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+
+        // Check if the password matches (for simplicity, assuming it's not hashed in this example)
+        if ($password === $user['password']) {
+            // Store session and set cookie
+            $_SESSION['user'] = $email;
+            setcookie("user", $email, time() + (86400 * 30), "/"); // Cookie for 30 days
+            // Redirect to index page
+            header("Location: index.html");
+            exit;
+        } else {
+            echo "<script>alert('Invalid password.'); window.location.href='login.html';</script>";
+        }
+    } else {
+        echo "<script>alert('User not found.'); window.location.href='login.html';</script>";
+    }
+
+    mysqli_close($conn);
 } else {
     echo "Invalid request method.";
 }
+?>
